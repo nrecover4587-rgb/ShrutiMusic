@@ -88,7 +88,7 @@ def owner_panel(_):
             InlineKeyboardButton(text=_["S_H_2"], url=config.YOUTUBE),
         ],
         [
-            InlineKeyboardButton(text=_["S_H_3"], url=config.GITHUB),
+            InlineKeyboardButton(text=_["S_H_3"], url=config.market),
             InlineKeyboardButton(text=_["S_H_4"], url=config.DONATE),
         ],
         [
