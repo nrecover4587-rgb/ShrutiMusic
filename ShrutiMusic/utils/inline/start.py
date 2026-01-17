@@ -40,11 +40,7 @@ def start_panel(_):
 
 def private_panel(_):
     buttons = [
-        [
 
-                
-                url=f"https://t.me/{app.username}?startgroup=true",
-            )
         ],
         [
             InlineKeyboardButton(
