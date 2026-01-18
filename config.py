@@ -29,7 +29,7 @@ GITHUB = os.getenv("GITHUB", "https://github.com/NoxxOP")
 DONATE = os.getenv("DONATE", "https://t.me/ShrutiBots/91")
 PRIVACY_LINK = os.getenv("PRIVACY_LINK", "https://graph.org/Privacy-Policy-05-01-30")
 
-DURATION_LIMIT_MIN = int(os.getenv("DURATION_LIMIT", 200))
+DURATION_LIMIT_MIN = int(os.getenv("DURATION_LIMIT", 2000))
 PLAYLIST_FETCH_LIMIT = int(os.getenv("PLAYLIST_FETCH_LIMIT", 25))
 
 TG_AUDIO_FILESIZE_LIMIT = int(os.getenv("TG_AUDIO_FILESIZE_LIMIT", 104857600))
@@ -49,16 +49,16 @@ START_STICKER_ENABLED = bool(os.getenv("START_STICKER_ENABLED", "True").lower() 
 
 START_IMG_URL = os.getenv("START_IMG_URL", "https://files.catbox.moe/7q8bfg.jpg")
 PING_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
-PLAYLIST_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
+PLAYLIST_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
 STATS_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
-TELEGRAM_AUDIO_URL = "https://files.catbox.moe/eehxb4.jpg"
-TELEGRAM_VIDEO_URL = "https://files.catbox.moe/eehxb4.jpg"
-STREAM_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
-SOUNCLOUD_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
-YOUTUBE_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
-SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
-SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
+TELEGRAM_AUDIO_URL = "https://files.catbox.moe/x8dhjp.jpg"
+TELEGRAM_VIDEO_URL = "https://files.catbox.moe/x8dhjp.jpg"
+STREAM_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
+SOUNCLOUD_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
+YOUTUBE_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
+SPOTIFY_ALBUM_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
+SPOTIFY_PLAYLIST_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
 
 BANNED_USERS = filters.user()
 adminlist = {}
