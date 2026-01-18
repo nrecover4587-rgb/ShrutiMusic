@@ -134,7 +134,7 @@ async def init():
 
     await app.stop()
     await userbot.stop()
-    LOGGER("ShrutiMusic").info("Stopping Shruti Music Bot...🥺")
+    LOGGER("wife music").info("Stopping wife Music Bot...🥺")
 
 if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(init())
