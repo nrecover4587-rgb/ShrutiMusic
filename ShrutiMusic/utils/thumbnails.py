@@ -42,7 +42,10 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
         results = VideosSearch(url, limit=1)
         results_data = results.result()
     
-        if not results_data or not results_data.get("result"):
+        if not results_data or "result" not in results_data:
+            return None
+            
+        if not results_data["result"]:
             return None
     
         result = results_data["result"][0]
@@ -50,8 +53,15 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
         thumbnail = None
         
         try:
-            thumbnail = result["thumbnails"][0]["url"].split("?")[0]
+            if "thumbnails" in result and result["thumbnails"]:
+                thumbnail = result["thumbnails"][0]["url"].split("?")[0]
+            else:
+                return None
         except Exception as e:
+            print(f"Thumbnail error: {e}")
+            return None
+
+        if not thumbnail:
             return None
 
         temp_thumb = f"cache/thumb{videoid}.png"
@@ -63,13 +73,16 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
                         await f.write(await resp.read())
                         await f.close()
                     else:
+                        print(f"Download failed: {resp.status}")
                         return None
         except Exception as e:
+            print(f"Download error: {e}")
             return None
 
         try:
             template_path = "ShrutiMusic/assets/Perfect.jpg"
             if not os.path.exists(template_path):
+                print(f"Template not found: {template_path}")
                 return None
                 
             template = Image.open(template_path).convert("RGBA")
@@ -157,6 +170,7 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
             return final_image_path
             
         except Exception as e:
+            print(f"Image processing error: {e}")
             try:
                 if os.path.exists(temp_thumb):
                     os.remove(temp_thumb)
@@ -165,4 +179,5 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
             return None
 
     except Exception as e:
+        print(f"Main error: {e}")
         return None
