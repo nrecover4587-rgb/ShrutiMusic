@@ -8,7 +8,6 @@ from unidecode import unidecode
 from py_yt import VideosSearch
 
 from ShrutiMusic import app
-from config import YOUTUBE_IMG_URL
 
 os.makedirs("cache", exist_ok=True)
 
@@ -44,23 +43,16 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
         results_data = results.result()
     
         if not results_data or not results_data.get("result"):
-            print(f"No results found for {videoid}")
-            return YOUTUBE_IMG_URL
+            return None
     
         result = results_data["result"][0]
             
-        thumbnail = YOUTUBE_IMG_URL
-        channel = "Unknown Artist"
+        thumbnail = None
         
         try:
             thumbnail = result["thumbnails"][0]["url"].split("?")[0]
         except Exception as e:
-            print(f"Error processing thumbnail URL: {e}")
-            
-        try:
-            channel = result.get("channel", {}).get("name", "Unknown Artist")
-        except Exception as e:
-            print(f"Error processing channel name: {e}")
+            return None
 
         temp_thumb = f"cache/thumb{videoid}.png"
         try:
@@ -71,21 +63,17 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
                         await f.write(await resp.read())
                         await f.close()
                     else:
-                        print(f"Failed to download thumbnail: HTTP {resp.status}")
-                        return YOUTUBE_IMG_URL
+                        return None
         except Exception as e:
-            print(f"Error downloading thumbnail: {e}")
-            return YOUTUBE_IMG_URL
+            return None
 
         try:
             template_path = "ShrutiMusic/assets/Perfect.jpg"
             if not os.path.exists(template_path):
-                print(f"Template image not found at {template_path}")
-                return YOUTUBE_IMG_URL
+                return None
                 
             template = Image.open(template_path).convert("RGBA")
             template_width, template_height = template.size
-            print(f"Template dimensions: {template_width}x{template_height}")
             
             song_art = Image.open(temp_thumb).convert("RGBA")
             
@@ -163,20 +151,18 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
             try:
                 if os.path.exists(temp_thumb):
                     os.remove(temp_thumb)
-            except Exception as e:
-                print(f"Error removing temporary thumbnail: {e}")
+            except:
+                pass
                 
             return final_image_path
             
         except Exception as e:
-            print(f"Error processing image: {e}")
             try:
                 if os.path.exists(temp_thumb):
                     os.remove(temp_thumb)
             except:
                 pass
-            return YOUTUBE_IMG_URL
+            return None
 
     except Exception as e:
-        print(f"Error in gen_thumb: {e}")
-        return YOUTUBE_IMG_URL
+        return None
