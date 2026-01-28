@@ -99,9 +99,9 @@ async def gen_thumb(videoid, user_id=None, force_update=False):
         return YOUTUBE_IMG_URL
 
     try:
-        template_path = "ShrutiMusic/assets/Perfect.jpg"
+        template_path = "ShrutiMusic/assets/MrPerfect.jpg"
         if not os.path.exists(template_path):
-            template_path = "ShrutiMusic/assets/template.jpg"
+            template_path = "ShrutiMusic/assets/Perfect.jpg"
             if not os.path.exists(template_path):
                 return YOUTUBE_IMG_URL
             
