@@ -48,10 +48,10 @@ START_STICKER_ENABLED = bool(os.getenv("START_STICKER_ENABLED", "True").lower() 
 
 START_IMG_URL = os.getenv("START_IMG_URL", "https://files.catbox.moe/7q8bfg.jpg")
 PING_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
-PLAYLIST_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
+PLAYLIST_IMG_URL = ""https://files.catbox.moe/x8dhjp.jpg"
 STATS_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
-TELEGRAM_AUDIO_URL = "https://files.catbox.moe/x8dhjp.jpg"
-TELEGRAM_VIDEO_URL = "https://files.catbox.moe/x8dhjp.jpg"
+TELEGRAM_AUDIO_URL = ""https://files.catbox.moe/x8dhjp.jpg"
+TELEGRAM_VIDEO_URL = ""https://files.catbox.moe/x8dhjp.jpg"
 STREAM_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
 SOUNCLOUD_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
 YOUTUBE_IMG_URL = "https://files.catbox.moe/x8dhjp.jpg"
